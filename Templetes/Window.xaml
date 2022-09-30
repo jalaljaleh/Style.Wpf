@@ -1,0 +1,60 @@
+﻿<ResourceDictionary  x:Class="Jaleh.Wpf.WindowStyle"
+                     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <Style x:Key="CustomWindowStyle" TargetType="{x:Type Window}">
+        <Setter Property="WindowChrome.WindowChrome">
+            <Setter.Value>
+                <WindowChrome CaptionHeight="35"
+                              CornerRadius="0,0,0,0"
+                              NonClientFrameEdges="None"
+                              ResizeBorderThickness="2"
+                              UseAeroCaptionButtons="False" GlassFrameThickness="2,2,2,2" />
+            </Setter.Value>
+        </Setter>
+
+        <Setter Property="BorderBrush" Value="#FF0D0D0D" />
+        <Setter Property="Background" Value="Black" />
+
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Window}">
+
+                    <Border Padding="5,5,5,5" Background="Black">
+
+                        <Grid Background="Black">
+                            <Border Background="{TemplateBinding Background}"
+                                BorderBrush="{TemplateBinding BorderBrush}"
+                                BorderThickness="1,35,1,1">
+                                <AdornerDecorator>
+                                    <ContentPresenter />
+                                </AdornerDecorator>
+                            </Border>
+
+                            <Grid Height="35"
+                            VerticalAlignment="Top">
+
+
+                                <TextBlock VerticalAlignment="Center" HorizontalAlignment="Left" FontSize="12" Foreground="White" Text="{TemplateBinding Title}" MinWidth="50" Margin="10,0,0,0"/>
+
+
+                                <WrapPanel HorizontalAlignment="Right" VerticalAlignment="Top" FlowDirection="RightToLeft">
+                                    <Button x:Name="BtnExit" Style="{StaticResource BtnDanger}" Content="X" Padding="10,0,10,0" BorderThickness="0,0,0,0" Click="BtnExit_Click" WindowChrome.IsHitTestVisibleInChrome="True"/>
+                                    <Button x:Name="BtnMaximize" Content="▢" Padding="10,0,10,0" BorderThickness="0,0,0,0" Click="BtnMaximize_Click" WindowChrome.IsHitTestVisibleInChrome="True" Margin="0,0,0,0"/>
+                                    <Button x:Name="BtnMinimize" Content="–" Padding="10,0,10,0" BorderThickness="0,0,0,0" Click="BtnMinimize_Click" WindowChrome.IsHitTestVisibleInChrome="True" Margin="0,0,0,0" Background="#FF373737"/>
+
+                                    <Button x:Name="BtnLock" Content="🔒" Padding="10,0,10,0" BorderThickness="0,0,0,0" Click="BtnLock_Click" WindowChrome.IsHitTestVisibleInChrome="True" Margin="0,0,0,0" Background="#FF373737"/>
+
+                                </WrapPanel>
+
+
+
+                            </Grid>
+
+                        </Grid>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+</ResourceDictionary>
